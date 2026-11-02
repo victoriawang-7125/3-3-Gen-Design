@@ -1,0 +1,72 @@
+/* PAGE 2: style.css - how the page looks (colors, spacing, layout) */
+
+/* Center everything in the middle of the tab */
+body {
+  margin: 0;
+  background: #05070d;            /* near-black background */
+  color: #cfe9ff;                 /* light blue text */
+  font-family: "Segoe UI", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;            /* center left-right */
+  justify-content: center;        /* center up-down */
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 12px 16px;
+}
+
+/* The small title */
+h1 {
+  font-size: 12px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: #8fb8cc;
+  font-weight: 500;
+}
+
+/* The drawing area. max-width keeps it inside small windows */
+#stage canvas {
+  max-width: 100%;
+  height: auto !important;
+  border: 1px solid #12324a;
+  border-radius: 6px;
+  display: block;
+}
+
+/* The control panel: a grid that wraps onto new rows when space runs out */
+#panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px 14px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 12px;
+}
+
+/* One control = a label stacked on top of a slider or color box */
+.ctl {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.ctl input[type=range] { width: 100%; accent-color: #6ff3ff; }
+.ctl input[type=color] {
+  width: 100%; height: 24px; padding: 2px;
+  background: #0a1220; border: 1px solid #12324a; border-radius: 4px;
+}
+
+/* Row that holds the two buttons (spans the full width) */
+#btns { display: flex; gap: 10px; grid-column: 1 / -1; }
+button {
+  flex: 1; padding: 8px;
+  background: #0a1220; color: #6ff3ff;
+  border: 1px solid #1d5a7a; border-radius: 4px;
+  font: inherit; font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+  cursor: pointer;
+}
+button:hover { background: #6ff3ff; color: #05070d; }  /* flips colors on hover */
